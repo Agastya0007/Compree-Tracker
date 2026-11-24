@@ -1,0 +1,151 @@
+<index.html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>Compre Tracker</title>
+<style>
+:root{--bg:#f4f6fa;--panel:#fff;--ink:#172033;--muted:#6b7485;--line:#e5e9f0;--nav:#111c2e;--blue:#4263eb;--blue2:#edf1ff;--green:#16845b;--amber:#b7791f;--shadow:0 8px 30px rgba(25,38,65,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+.shell{max-width:1180px;margin:auto;padding:22px 20px 60px}
+header{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:42px;height:42px;border-radius:13px;background:var(--nav);color:#fff;display:grid;place-items:center;font-weight:800;font-size:18px}
+h1{font-size:23px;line-height:1.1;margin:0}.sub{font-size:12px;color:var(--muted);margin-top:4px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:10px;padding:9px 12px;font-weight:650;font-size:13px}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn:hover{filter:brightness(.97)}
+.hero{background:var(--nav);color:#fff;border-radius:18px;padding:22px 24px;margin-bottom:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}
+.hero h2{font-size:20px;margin:0 0 5px}.hero p{color:#c5cede;margin:0;font-size:13px}.overall{display:flex;align-items:center;gap:15px;justify-content:flex-end}
+.ring{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#7fa0ff var(--p),#344157 0);position:relative;flex:none}.ring:before{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--nav)}.ring strong{position:relative;font-size:17px}
+.overall small{display:block;color:#c5cede}.overall b{font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}.stat span{font-size:12px;color:var(--muted)}.stat strong{display:block;font-size:22px;margin-top:2px}
+.layout{display:grid;grid-template-columns:245px minmax(0,1fr);gap:18px;align-items:start}
+aside,.mainpanel{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+aside{padding:12px;position:sticky;top:12px}.navtitle{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.08em;padding:8px 10px}
+.subjectnav{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:transparent;padding:10px;border-radius:10px;text-align:left;color:var(--ink);font-weight:650;margin:2px 0}.subjectnav.active{background:var(--blue2);color:#2948c7}.subjectnav small{color:var(--muted);font-weight:600}.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:9px}
+.mainpanel{padding:20px;min-height:500px}.topline{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:15px}.topline h2{margin:0;font-size:21px}.topline p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.progressline{height:8px;background:#edf0f5;border-radius:99px;overflow:hidden;margin:13px 0 18px}.progressline div{height:100%;background:var(--green);border-radius:99px;width:0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}.toolbar input,.toolbar select,.noteinput,.addrow input{border:1px solid var(--line);background:#fff;border-radius:9px;padding:9px 11px;color:var(--ink)}.toolbar input{flex:1;min-width:150px}
+.group{border:1px solid var(--line);border-radius:12px;margin:12px 0;overflow:hidden}.grouphead{background:#fafbfe;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:750}.grouphead small{color:var(--muted);font-weight:600}
+.task{display:grid;grid-template-columns:22px minmax(0,1fr) 135px;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid #f0f2f6}.task:hover{background:#fcfdff}.task input[type=checkbox]{width:17px;height:17px;accent-color:var(--green);cursor:pointer}.taskname{font-size:13px}.task.done .taskname{text-decoration:line-through;color:#87909e}.task select{width:100%;border:1px solid var(--line);border-radius:8px;padding:6px 7px;background:white;color:#596273;font-size:11px}
+.addrow{display:flex;gap:8px;margin-top:16px}.addrow input{flex:1;min-width:0}.hint{font-size:11px;color:var(--muted);margin-top:12px}
+.logbox{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}.logbox h3{font-size:14px;margin:0 0 8px}.noteinput{width:100%;min-height:66px;resize:vertical}.savebar{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:8px}.savednote{font-size:12px;color:var(--muted);white-space:pre-wrap;margin-top:10px}
+.deadline{display:inline-block;border-radius:8px;background:#fff3dc;color:#875b0c;padding:5px 8px;font-size:11px;font-weight:750;margin-top:8px}
+.empty{color:var(--muted);font-size:13px;padding:18px;text-align:center}
+footer{font-size:11px;color:var(--muted);text-align:center;margin:18px 0 0}
+@media(max-width:760px){.shell{padding:14px 12px 40px}header{align-items:flex-start}.actions .btn{padding:8px 9px}.hero{grid-template-columns:1fr;padding:18px}.overall{justify-content:flex-start}.stats{grid-template-columns:repeat(2,1fr);gap:8px}.layout{grid-template-columns:1fr}aside{position:static;display:flex;overflow:auto;gap:5px;padding:8px}.navtitle{display:none}.subjectnav{white-space:nowrap;width:auto;flex:none;padding:9px 11px}.subjectnav small{margin-left:8px}.mainpanel{padding:14px}.task{grid-template-columns:20px minmax(0,1fr);gap:8px}.task select{grid-column:2;width:145px}.topline{flex-direction:column}.ring{width:62px;height:62px}}
+@media(max-width:390px){h1{font-size:20px}.sub{font-size:11px}.actions{max-width:130px}.stats .stat{padding:11px}.stat strong{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header>
+ <div class="brand"><div class="logo">CT</div><div><h1>Compre Tracker</h1><div class="sub">Your syllabus, practice and daily progress in one place</div></div></div>
+ <div class="actions">
+  <button class="btn" id="exportBtn">Export backup</button>
+  <button class="btn" id="importBtn">Import</button>
+  <input type="file" id="importFile" accept="application/json" hidden>
+ </div>
+</header>
+<section class="hero">
+ <div><h2>Small progress. Every subject.</h2><p>Tick off topics as you complete them. Move a topic through Learning, Practising and Exam ready.</p></div>
+ <div class="overall"><div class="ring" id="overallRing" style="--p:0%"><strong id="overallPct">0%</strong></div><div><b id="overallCount">0 of 0 topics ready</b><small>Overall exam readiness</small></div></div>
+</section>
+<section class="stats">
+ <div class="stat"><span>Topics completed</span><strong id="completedStat">0</strong></div>
+ <div class="stat"><span>In progress</span><strong id="progressStat">0</strong></div>
+ <div class="stat"><span>Still to start</span><strong id="todoStat">0</strong></div>
+ <div class="stat"><span>Subjects</span><strong>5</strong></div>
+</section>
+<div class="layout">
+<aside id="subjectNav"><div class="navtitle">SUBJECTS</div></aside>
+<main class="mainpanel">
+ <div class="topline"><div><h2 id="subjectTitle">M1 · Multivariable Calculus</h2><p id="subjectDesc">Course handout topics · 11 modules</p><div class="deadline" id="subjectDeadline">Compre · 1 December</div></div><div style="min-width:125px;text-align:right"><b id="subjectPct">0%</b><div class="sub">exam ready</div></div></div>
+ <div class="progressline"><div id="subjectBar"></div></div>
+ <div class="toolbar"><input id="search" placeholder="Search topics…"><select id="filter"><option value="all">All topics</option><option value="todo">Not started</option><option value="learning">Learning</option><option value="practising">Practising</option><option value="ready">Exam ready</option></select></div>
+ <div id="groups"></div>
+ <div class="addrow"><input id="newTask" placeholder="Add a topic or practice task…"><button class="btn primary" id="addBtn">Add task</button></div>
+ <div class="logbox"><h3>Daily study log</h3><textarea class="noteinput" id="dailyNote" placeholder="What did you study today? What felt difficult? What should we pick up tomorrow?"></textarea><div class="savebar"><span class="sub" id="saveState">Saved on this device automatically</span><button class="btn" id="saveNote">Save today's note</button></div><div id="notesList"></div></div>
+ <div class="hint">Tip: “Exam ready” means you can solve an unfamiliar question independently — not just that you've read the topic.</div>
+</main>
+</div>
+<footer>Progress is saved in this browser on this device. Use Export backup → Import on your other device to transfer it. Automatic cross-device sync requires shared online storage.</footer>
+</div>
+<script>
+const seed = [
+{id:"m1",name:"M1",title:"Multivariable Calculus",deadline:"Compre · 1 December",desc:"MATH U101 · 11 modules from the official course plan",groups:[
+["Module 1 · Polar coordinates",["Polar coordinates","Integration using polar coordinates: areas","Integration using polar coordinates: arc lengths"]],
+["Module 2 · Sequences and series",["Convergence of sequences and series of real numbers","Tests of convergence: non-negative terms","Absolute and conditional convergence","Alternating series","Power series and radius of convergence","Taylor series of functions"]],
+["Module 3 · Vector-valued functions",["Limits and continuity of single-variable functions (self-study)","Limits, continuity and differentiability of vector functions","Arc length, velocity and unit tangent vector","Curvature and normal vector"]],
+["Module 4 · Functions of several variables",["Functions of several variables","Level curves","Limits and continuity of two- and three-variable functions"]],
+["Module 5 · Partial derivatives",["Partial derivatives","Differentiability","Chain rule"]],
+["Module 6 · Directional derivatives and tangent planes",["Directional derivatives","Gradient vectors","Tangent planes and normal lines","Linearization"]],
+["Module 7 · Optimization",["Maximum and minimum of functions of several variables","Saddle points","Lagrange multipliers"]],
+["Module 8 · Double integrals",["Double integrals","Areas using double integrals","Change of variables: rectangular to polar coordinates"]],
+["Module 9 · Triple integrals",["Triple integrals in rectangular coordinates","Triple integrals in cylindrical coordinates","Triple integrals in spherical coordinates","Substitution in integrals"]],
+["Module 10 · Line integrals and Green's theorem",["Line integrals","Work, circulation and flux","Path independence and potential functions","Conservative fields","Green's theorem"]],
+["Module 11 · Surface integrals and vector theorems",["Surface area and surface integrals","Gauss' divergence theorem","Stokes' theorem"]]
+]},
+{id:"es",name:"ES",title:"Electrical Sciences",deadline:"Compre · 4 December",desc:"EEE U111 · 9 topic groups from the official handout",groups:[
+["1 · Basic circuit elements and laws",["Basic circuit elements","Independent and dependent sources","Ohm's law","KCL and KVL","Series and parallel circuits","Simplifying circuit connections","Power in resistive circuits"]],
+["2 · Nodal and mesh analysis",["Nodal analysis","Mesh analysis","Supernode concepts"]],
+["3 · Circuit analysis techniques",["Superposition theorem","Source transformation","Thevenin theorem","Norton theorem","Maximum power transfer theorem","Network theorems with dependent sources"]],
+["4 · Time-domain analysis",["Capacitors and inductors: energy storage","Series and parallel combinations","First-order RC circuits","First-order RL circuits","Natural and forced response","Second-order circuits","Overdamped, underdamped and critically damped conditions"]],
+["5 · Sinusoidal steady-state analysis",["Time-varying current and voltage sources","Phasors","Impedance","AC KCL and KVL","AC Ohm's law","AC source transformation","Superposition in AC circuits","Thevenin theorem in AC circuits"]],
+["6 · Power in AC circuits",["Instantaneous power","Average power","RMS and effective values","Maximum power transfer in AC circuits","Apparent, real, reactive and complex power"]],
+["7 · Diodes",["Operation of diodes","Zener diodes","Diode and Zener applications"]],
+["8 · Bipolar junction transistors",["Types of BJT","BJT-based amplifier","BJT as a switch"]],
+["9 · Operational amplifiers",["Inverting amplifier","Non-inverting amplifier","Summing amplifier","Difference amplifier","Voltage follower","Positive and negative feedback","Non-ideal op-amp models"]]
+]},
+{id:"cs",name:"CS",title:"Computational Thinking & Programming",deadline:"Compre · 8 December",desc:"CS U111 · course plan and laboratory skills",groups:[
+["Foundations and problem solving",["Introduction and basic model of computation: input, processing, output, storage","Problem decomposition and abstraction","Flowcharts and pseudocode","Algorithm design, tracing and correctness","Notional machine and design recipe","Testing and debugging"]],
+["Programming fundamentals",["Expressions, variables and data types","Operators, type conversion and precedence","Conditional statements","Bounded and unbounded loops"]],
+["Functions and recursion",["Functions and modular program design","Parameter passing and scope","Recursion: base and recursive cases","Call stack behaviour","Recursive vs iterative approaches"]],
+["Strings, arrays and loops",["String representation and null terminator","String input and output","String library functions","1D arrays and traversal","Searching and common array operations","Loops with strings and arrays"]],
+["Structured data and pointers",["User-defined data and structured representations","Pointer basics and address/dereferencing","Pointer arithmetic","Pointers and arrays","Pointers with functions and parameter passing","Dynamic memory allocation and memory management","malloc, free and pointer-to-pointer concepts"]],
+["File I/O and integrated problems",["File input and output","Sequential data processing","Integrated problems using files, arrays, strings and pointers"]],
+["Linked and multidimensional data",["Simple linked list","Multidimensional arrays","Integrated grid and matrix problems"]],
+["Preprocessor and command line",["Preprocessor directives","Command-line arguments"]],
+["Programming practice",["Write complete programs independently","Trace unfamiliar C programs","Test edge cases and debug compiler errors","Explain and verify AI-assisted code critically"]]
+]},
+{id:"pns",name:"PNS",title:"Probability & Statistics",deadline:"Compre · 11 December",desc:"MATH U113 · 8 modules plus separate R Lab quiz preparation",groups:[
+["Module 1 · Various concepts in probability theory",["Sample spaces and events","Permutations and combinations (self-study)","Axioms of probability","Conditional probability","Independence","Multiplication rule","Bayes' theorem"]],
+["Module 2 · Discrete distributions",["Random variables","Discrete probability densities","Cumulative distribution function","Expectation, variance and standard deviation","Moment generating function","Binomial distribution","Negative binomial distribution","Hypergeometric distribution","Geometric distribution","Poisson distribution"]],
+["Module 3 · Continuous distributions",["Continuous densities and cumulative distribution","Distribution parameters","Moment generating function","Uniform distribution","Normal distribution and standard normal distribution","Normal probability law","Gamma distribution","Exponential distribution","Chi-squared distribution","Chebyshev's inequality"]],
+["Module 4 · Simulation",["Simulation of discrete random variables","Simulation of continuous random variables","Inverse transform method"]],
+["Module 5 · Joint distributions",["Joint densities and independence","Marginal distributions: discrete and continuous","Expectation","Conditional densities","Correlation"]],
+["Module 6 · Descriptive statistics and estimation",["Random sampling and sample statistics","Central limit theorem","Point estimation","Method of moments","Maximum likelihood estimation"]],
+["Module 7 · Statistical inference",["Interval estimation of mean and variability","Estimating the mean","Student-t distribution","Hypothesis testing","Tests on the mean","Z-value, t-value and p-value","Two-sample confidence intervals and hypothesis testing (Z test only)"]],
+["Module 8 · Simple linear regression and correlation",["Model and parameter estimation","Simple linear regression","Correlation"]]
+],extras:[
+["R Lab quiz · 26 November",["R syntax and basic commands","Importing and inspecting data","Vectors, variables and indexing","Descriptive statistics in R","Statistical calculations in R","Plots and graphical output","Interpreting R output","MCQ practice from the supplied R Lab material"]]
+]},
+{id:"edp",name:"EDP",title:"Engineering Design & Prototyping",deadline:"Compre · 15 December",desc:"BITS U103 · tentative 12-week course plan",groups:[
+["Design and prototyping concepts",["Introduction to engineering design and prototyping","Stages of new product development","Characteristics of prototypes","Concept of fidelity","Importance of prototypes and case studies","Traditional and modern manufacturing processes","Choosing a manufacturing process for a prototype","Common design failures","Connection between design, manufacturing and prototyping"]],
+["Engineering graphics and drawings",["Theory of projection","Orthographic projection drawings","Isometric projection drawings","Assembly drawings","Fits and tolerances","Exploded, detailed and section views","Development of surfaces","Sheet metal design"]],
+["SolidWorks · sketching and part modelling",["Introduction to SolidWorks","Basic sketching","Advanced sketching","Dimensions and relations","Basic part modelling","Advanced part modelling","Reference geometry and curves","Holes and patterns"]],
+["SolidWorks · assemblies and drawings",["Assembly modelling and basic features","Assembly modelling in SolidWorks","Part drawings","Assembly drawings","Advanced drawings with GD&T","Sheet metal design in SolidWorks","Surface modelling and design"]],
+["GD&T and metrology",["GD&T fundamentals","GD&T in part drawings","GD&T in assembly drawings","Metrology and measurements","Fits and tolerances practice"]],
+["Prototyping and complete design exercise",["Workshop and prototyping fundamentals","Prototype development exercises","Prototype demonstration and iteration","Complete design exercise: part modelling to assembly modelling","Create part drawings and assembly drawings","Independent practical: model, assemble and document a design"]]
+]}
+];
+let data = JSON.parse(localStorage.getItem("compreTrackerV1")||"null") || {subjects:{},notes:[]};
+function init(){seed.forEach(s=>{if(!data.subjects[s.id])data.subjects[s.id]={};s.groups.forEach((g,gi)=>g[1].forEach((t,ti)=>{let k=`${gi}-${ti}`;if(!data.subjects[s.id][k])data.subjects[s.id][k]={text:t,status:"todo",done:false}}));(s.extras||[]).forEach((g,gi)=>g[1].forEach((t,ti)=>{let k=`x${gi}-${ti}`;if(!data.subjects[s.id][k])data.subjects[s.id][k]={text:t,status:"todo",done:false}}))});save()}
+function save(){localStorage.setItem("compreTrackerV1",JSON.stringify(data))}
+let active="m1";
+const $=id=>document.getElementById(id);
+function allItems(){return Object.values(data.subjects).flatMap(o=>Object.values(o))}
+function stats(){let a=allItems(),ready=a.filter(x=>x.status==="ready"||x.done).length,prog=a.filter(x=>["learning","practising"].includes(x.status)).length,todo=a.length-ready-prog,p=Math.round(ready/(a.length||1)*100);$("overallRing").style.setProperty("--p",p+"%");$("overallPct").textContent=p+"%";$("overallCount").textContent=`${ready} of ${a.length} topics ready`;$("completedStat").textContent=ready;$("progressStat").textContent=prog;$("todoStat").textContent=todo}
+function subjectItems(s){return Object.values(data.subjects[s.id]||{})}
+function renderNav(){let nav=$("subjectNav");nav.innerHTML='<div class="navtitle">SUBJECTS</div>';seed.forEach(s=>{let a=subjectItems(s),r=a.filter(x=>x.status==="ready"||x.done).length,b=document.createElement("button");b.className="subjectnav"+(active===s.id?" active":"");b.innerHTML=`<span><i class="dot" style="background:${({m1:"#5575ed",es:"#d97757",cs:"#169b79",pns:"#a17ad4",edp:"#c08a2b"})[s.id]}"></i>${s.name}</span><small>${r}/${a.length}</small>`;b.onclick=()=>{active=s.id;render()};nav.appendChild(b)})}
+function render(){let s=seed.find(x=>x.id===active),items=subjectItems(s),ready=items.filter(x=>x.status==="ready"||x.done).length,p=Math.round(ready/(items.length||1)*100);$("subjectTitle").textContent=s.name+" · "+s.title;$("subjectDesc").textContent=s.desc;$("subjectDeadline").textContent=s.deadline;$("subjectPct").textContent=p+"%";$("subjectBar").style.width=p+"%";renderNav();stats();renderGroups(s)}
+function renderGroups(s){let root=$("groups");root.innerHTML="";let query=$("search").value.toLowerCase(),filter=$("filter").value;let sections=s.groups.map((g,gi)=>({name:g[0],keys:g[1].map((t,ti)=>`${gi}-${ti}`)}));(s.extras||[]).forEach((g,gi)=>sections.push({name:g[0],keys:g[1].map((t,ti)=>`x${gi}-${ti}`)}));
+sections.forEach(sec=>{let visible=sec.keys.filter(k=>{let x=data.subjects[s.id][k];return x&&x.text.toLowerCase().includes(query)&&(filter==="all"||(filter==="todo"&&x.status==="todo"&&!x.done)||x.status===filter)});if(!visible.length)return;let ready=sec.keys.filter(k=>{let x=data.subjects[s.id][k];return x&&(x.status==="ready"||x.done)}).length;let box=document.createElement("section");box.className="group";let head=document.createElement("div");head.className="grouphead";head.innerHTML=`<span>${sec.name}</span><small>${ready}/${sec.keys.length} ready</small>`;box.appendChild(head);visible.forEach(k=>{let x=data.subjects[s.id][k],row=document.createElement("div");row.className="task"+((x.done||x.status==="ready")?" done":"");let cb=document.createElement("input");cb.type="checkbox";cb.checked=x.done||x.status==="ready";cb.setAttribute("aria-label","Mark "+x.text+" complete");cb.onchange=()=>{x.done=cb.checked;x.status=cb.checked?"ready":(x.status==="ready"?"practising":x.status);save();render()};let name=document.createElement("div");name.className="taskname";name.textContent=x.text;let sel=document.createElement("select");[["todo","Not started"],["learning","Learning"],["practising","Practising"],["ready","Exam ready"]].forEach(([v,l])=>{let o=document.createElement("option");o.value=v;o.textContent=l;sel.appendChild(o)});sel.value=x.status;sel.onchange=()=>{x.status=sel.value;x.done=sel.value==="ready";save();render()};row.append(cb,name,sel);box.appendChild(row)});root.appendChild(box)});if(!root.children.length)root.innerHTML='<div class="empty">No topics match this filter.</div>'}
+$("search").oninput=()=>renderGroups(seed.find(x=>x.id===active));$("filter").onchange=()=>renderGroups(seed.find(x=>x.id===active));
+$("addBtn").onclick=()=>{let v=$("newTask").value.trim();if(!v)return;let s=data.subjects[active],k="custom-"+Date.now();s[k]={text:v,status:"todo",done:false};$("newTask").value="";save();render()};$("newTask").addEventListener("keydown",e=>{if(e.key==="Enter")$("addBtn").click()});
+$("saveNote").onclick=()=>{let v=$("dailyNote").value.trim();if(!v)return;data.notes.unshift({date:new Date().toLocaleDateString(),text:v});$("dailyNote").value="";save();renderNotes();$("saveState").textContent="Today's note saved"};function renderNotes(){$("notesList").innerHTML=data.notes.slice(0,8).map(n=>`<div class="savednote"><b>${n.date}</b> · ${escapeHtml(n.text)}</div>`).join("")}function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("exportBtn").onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="compre-tracker-backup.json";a.click();URL.revokeObjectURL(url)};$("importBtn").onclick=()=>$("importFile").click();$("importFile").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let d=JSON.parse(await f.text());if(!d.subjects)throw Error();data=d;save();render();renderNotes();alert("Backup imported.")}catch(err){alert("That backup file could not be read.")}e.target.value=""};
+init();render();renderNotes();
+</script>
+</body>
+</html>
